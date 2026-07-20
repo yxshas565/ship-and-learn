@@ -88,7 +88,7 @@ flowchart LR
 
 **Commit pulse**
 
-<img src="https://github-readme-stats.vercel.app/api?username=yxshas565&show_icons=true&hide_title=true&theme=dark&bg_color=0D1117&title_color=FF6A00&icon_color=FF0080&text_color=FFD500&border_color=FF6A00&border_radius=10" width="48%" />
+<img src="https://github-readme-stats-sigma-five.vercel.app/api?username=yxshas565&show_icons=true&hide_title=true&theme=dark&bg_color=0D1117&title_color=FF6A00&icon_color=FF0080&text_color=FFD500&border_color=FF6A00&border_radius=10" width="48%" />
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=yxshas565&theme=dark&background=0D1117&border=FF6A00&ring=FF0080&fire=FFD500&currStreakLabel=FFD500&sideLabels=FF6A00&dates=8C8C8C&border_radius=10" width="48%" />
 
 **Contribution graph**
@@ -97,7 +97,7 @@ flowchart LR
 
 **Top languages**
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yxshas565&layout=compact&theme=dark&bg_color=0D1117&title_color=FF6A00&text_color=FFD500&border_color=FF6A00&border_radius=10&hide_border=false" width="48%" />
+<img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=yxshas565&layout=compact&theme=dark&bg_color=0D1117&title_color=FF6A00&text_color=FFD500&border_color=FF6A00&border_radius=10&hide_border=false" width="48%" />
 
 </div>
 
