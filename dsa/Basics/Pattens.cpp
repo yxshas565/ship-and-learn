@@ -293,6 +293,116 @@ void ulta_inverted_cone_reverse(int n){
 
 
 
+void num_ulta_inverted_cone_reverse(int n){
+    for (int i=0; i<n; i++){
+        for (int j=0; j<i; j++){
+            cout << "  ";
+        }
+        for (int j=n-i; j>0; j--){
+            cout << i+1 << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
+
+
+void num_ulta_inverted_cone(int n){
+    for (int i=0; i<n; i++){
+        for (int j=n-1-i; j>0; j--){
+            cout << "  ";
+        }
+        for (int j=0; j<i+1; j++){
+            cout << i+1 << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
+
+
+void num_all_ulta_inverted_cone_reverse(int n){
+    for (int i=0; i<n; i++){
+        int a = i+1;
+        for (int j=0; j<i; j++){
+            cout << "  ";
+        }
+        for (int j=n-i; j>0; j--){
+            cout << a << " ";
+            a++;
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
+
+
+void num_all_ulta_inverted_cone(int n){
+    int a = 1;
+    for (int i=0; i<n; i++){
+        for (int j=n-1-i; j>0; j--){
+            cout << "  ";
+        }
+        for (int j=0; j<i+1; j++){
+            cout << a << " ";
+            a++;
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
+
+
+// Pyramid
+
+void pyramid_num_pattern(int n){
+    int a = 1;
+    for (int i=0; i<n; i++){
+        for (int j=n-i-1; j>0; j--){
+            cout << "  ";
+        }
+        for (int j=0; j<i+1; j++){
+            cout << j+1 << " ";
+        }
+        for (int j=0; j<i; j++){
+            cout << a << " ";
+            a--;
+        }
+        cout << endl;
+        a = i+1;
+    }
+    cout << endl;
+}
+
+// Dabang pattern
+
+void dabangg_pattern(int n){
+    int a = 1;
+    for (int i=0; i<n; i++){
+        for (int j=i; j<n; j++){
+            cout << a << " ";
+            a++;
+        }
+        for (int j=0; j<i; j++){
+            cout << "* ";
+        }
+        for (int j=0; j<i; j++){
+            cout << "* ";
+        }
+        for (int j=n-i; j>0; j--){
+            cout << j << " ";
+        }
+        cout << endl;
+        a = 1;
+    }
+    cout << endl;
+}
+
+
 int main(){
     int n= 5;
     pattern_star(n);
@@ -317,5 +427,11 @@ int main(){
     inverted_cone(4);
     ulta_inverted_cone(4);
     ulta_inverted_cone_reverse(4);
+    num_ulta_inverted_cone_reverse(10);
+    num_ulta_inverted_cone(4);
+    num_all_ulta_inverted_cone_reverse(4);
+    num_all_ulta_inverted_cone(4);
+    pyramid_num_pattern(4);
+    dabangg_pattern(5);
     return 0;
 }
