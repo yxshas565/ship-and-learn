@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# Executables
+*.exe
+
+# VS Code settings
+.vscode/
