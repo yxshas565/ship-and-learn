@@ -47,3 +47,50 @@ Float = whole numbers which include decimal numbers
 
 
 Python is "0" index based programming language 
+
+
+
+# External tools
+
+Python has packages of everything
+
+1. Web scraping
+2. Data analysis 
+3. AI/ModuleNotFoundError
+4. API's
+5. Automation
+
+
+Using packages
+
+1. Built-in = comes withpython
+2. External = Need to install first with pip
+
+
+Understanding terminology :- 
+
+1. Module = A single python file 
+2. Package = A folder conatining multiple modules 
+3. Function =  A reusuable block of code 
+4. Class = A blueprint for creating objects
+
+
+# Installing packages (Different ways of installing)
+
+1. pip install requests                     # Particular module
+2. pip install requests==2.28.0             # Particular version of module
+3. pip install pandas numpy matplotlib      # Mulitple module's
+4. pip freeze > requirement.txt             # list of all project's packages in txt file
+5. pip install -r requirements.txt          # Installing all modules with specific version as mentioned in requirement.txt file
+
+
+-> Best way to know more about which particular package is asking an ai tool based on requirements of project 
+
+
+# Name conflicts 
+
+1. if we improt a module named "XXX" and also use the variable named "XXX" below then module is gone
+
+
+
+# Working with API's
