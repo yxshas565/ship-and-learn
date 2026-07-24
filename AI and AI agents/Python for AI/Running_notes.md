@@ -94,3 +94,9 @@ Understanding terminology :-
 
 
 # Working with API's
+
+.      -> Current folder
+..     -> One folder up
+../..  -> Two folders up
+../../.. -> Three folders up
+../../../.. -> Four folders up
