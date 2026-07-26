@@ -80,6 +80,6 @@ int main(){
     // subtractProductAndSum(234);
     // hammingWeight(2147483645);
     // reverse(-123);
-    bitwiseComplement(5);
+    // bitwiseComplement(5);
     cout << endl;
 }
