@@ -99,6 +99,11 @@ flowchart LR
 
 <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=yxshas565&layout=compact&theme=dark&bg_color=0D1117&title_color=FF6A00&text_color=FFD500&border_color=FF6A00&border_radius=10&hide_border=false" width="48%" />
 
+**LeetCode stats**
+
+<img src="https://leetcode-stats-card.vercel.app/api?username=yxshas565&theme=dark&background=0D1117&border=FF6A00&text_color=FFD500" width="48%" />
+<img src="https://leetcard.jacoblin.cool/yxshas565?theme=dark&font=Fira%20Code&ext=heatmap" width="48%" />
+
 </div>
 
 > All widgets pull live from GitHub on every page load. If a card looks empty right now, that's real state, not a broken embed — it fills in as commits land.
