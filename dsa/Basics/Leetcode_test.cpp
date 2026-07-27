@@ -76,10 +76,55 @@ void bitwiseComplement(int n) {
     cout << result;
 }
 
+
+int reverse_integer(int x) {
+    string reverse_num = "";
+    bool is_negative = false;
+    if (x < 0){
+        x = abs(x);
+        is_negative = true;
+    }
+    int i = 1;
+    while (x > 0){
+        int digit = x % 10;
+        string new_str = to_string(digit);
+        reverse_num += new_str;
+        x /= 10;
+    }
+    int final_ans = stoi(reverse_num);
+    if (is_negative){
+        final_ans = -final_ans;    
+    }
+    return final_ans;
+}
+
+
+bool isPowerOfTwo(int n) {
+        if (n <= 0){
+            return false;
+        }
+        if (n == 1){
+            return true;
+        }
+        if (n%2 != 0){
+            return false;
+        }
+        while(n != 1){
+            int check = n/2;
+            if (check % 2 != 0 && check != 1){
+                return false;
+            }
+            n/=2;
+        }
+        return true;
+    }
+
 int main(){
-    // subtractProductAndSum(234);
-    // hammingWeight(2147483645);
-    // reverse(-123);
-    // bitwiseComplement(5);
+    subtractProductAndSum(234);
+    hammingWeight(2147483645);
+    reverse(-123);
+    bitwiseComplement(5);
+    cout << reverse_integer(-123);
+    cout << isPowerOfTwo(258);
     cout << endl;
 }

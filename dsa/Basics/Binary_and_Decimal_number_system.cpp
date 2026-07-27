@@ -167,24 +167,24 @@ int main(){
     int n = 5;
     string dash = "-";
     
-    // cout << "Decimal number : " << n << endl;
-    // cout << "Binary number (using normal approach) : " << decimal_to_binary_conversion_int_approach(n) << endl;
-    // cout << endl << endl;
+    cout << "Decimal number : " << n << endl;
+    cout << "Binary number (using normal approach) : " << decimal_to_binary_conversion_int_approach(n) << endl;
+    cout << endl << endl;
 
-    // cout << "Decimal number : " << n << endl;
-    // cout << "Binary number (using string approach) : " << decimal_to_binary_conversion_string_approach(n) << endl;
-    // cout << endl << endl;
+    cout << "Decimal number : " << n << endl;
+    cout << "Binary number (using string approach) : " << decimal_to_binary_conversion_string_approach(n) << endl;
+    cout << endl << endl;
 
-    // cout << "Decimal number : " << n << endl;
-    // cout << "Binary number (using bitwise approach) : " << decimal_to_binary_bitwise(n) << endl;
-    // cout << endl << endl;
+    cout << "Decimal number : " << n << endl;
+    cout << "Binary number (using bitwise approach) : " << decimal_to_binary_bitwise(n) << endl;
+    cout << endl << endl;
 
-    // cout << "Decimal number : " << n << endl;
-    // cout << "Binary number (using string bitwise approach) : " << decimal_to_binary_conversion_string_approach_using_bitwise(n) << endl;
-    // cout << endl << endl;
+    cout << "Decimal number : " << n << endl;
+    cout << "Binary number (using string bitwise approach) : " << decimal_to_binary_conversion_string_approach_using_bitwise(n) << endl;
+    cout << endl << endl;
 
 
-    // cout << negative_coversion(-5);
+    cout << negative_coversion(-5);
     cout << "Decimal number : " << decimal_binary(1000000) << endl;
     return 0;
 }
