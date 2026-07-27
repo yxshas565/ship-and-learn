@@ -101,8 +101,7 @@ flowchart LR
 
 **LeetCode stats**
 
-<img src="https://leetcode-stats-card.vercel.app/api?username=yxshas565&theme=dark&background=0D1117&border=FF6A00&text_color=FFD500" width="48%" />
-<img src="https://leetcard.jacoblin.cool/yxshas565?theme=dark&font=Fira%20Code&ext=heatmap" width="48%" />
+<img src="https://leetcard.jacoblin.cool/yxshas565?theme=dark&font=Fira%20Code&ext=heatmap" width="60%" />
 
 </div>
 
