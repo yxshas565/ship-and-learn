@@ -123,7 +123,9 @@ int combination(int n, int r){
     return combination;
 }
 
+// Function Signature
 void print_counting(int n){
+    // Function Body
     for (int i=1; i<=n; i++){
         cout << i << " ";
     }
@@ -147,58 +149,80 @@ bool isPrime(int n){
     return true;
 }
 
+
+void pass_by_value(int a, int b){
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+// Arrays is pass by reference
+void pass_by_reference(int &a, int &b){
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
 int main(){
-    // int x;
-    // int num;
-    // cout << "Enter which day : ";
-    // cin >> x;
-    // num = x;
-    // days_of_week(x,num);
+    int x;
+    int num;
+    cout << "Enter which day : ";
+    cin >> x;
+    num = x;
+    days_of_week(x,num);
 
-    // cout << endl << endl;
-
-
-    // int a,b;
-    // char opeartor;
-
-    // cout << "Enter 2 numbers : ";
-    // cin >> a >> b;
-    // cout << "Enter operation to be performed (+,-,*,/,%) : ";
-    // cin >> opeartor;
+    cout << endl << endl;
 
 
-    // mini_calculator(a,b,opeartor);
+    int a,b;
+    char opeartor;
 
-    // cout << endl << endl;
-    // int n,pow;
-    // cout << "Enter number and power : ";
-    // cin >> n >> pow;
-    // cout << "Power of " << n << " times " << pow << " is : " << pow_num(n,pow);
-
-    // cout << endl << endl;
-    // if(odd_even(5)){
-    //     cout << "It's even !!" << endl;
-    // }
-    // else{
-    //     cout << "It's odd !!" << endl;
-    // }
-
-    // cout << fact(5) << endl;
-    // cout << combination(6,3) << endl;
+    cout << "Enter 2 numbers : ";
+    cin >> a >> b;
+    cout << "Enter operation to be performed (+,-,*,/,%) : ";
+    cin >> opeartor;
 
 
-    // print_counting(10);
-    // cout << endl;
-    // int check = isPrime(23);
-    // if(check){
-    //     cout << "It's a prime number !!" << endl;
-    // }
-    // else{
-    //     cout << "It's not a prime number !!" << endl;
-    // }
+    mini_calculator(a,b,opeartor);
 
+    cout << endl << endl;
+    int n,pow;
+    cout << "Enter number and power : ";
+    cin >> n >> pow;
+    cout << "Power of " << n << " times " << pow << " is : " << pow_num(n,pow);
 
+    cout << endl << endl;
+    if(odd_even(5)){
+        cout << "It's even !!" << endl;
+    }
+    else{
+        cout << "It's odd !!" << endl;
+    }
 
+    cout << fact(5) << endl;
+    cout << combination(6,3) << endl;
+
+    // Function callling 
+    print_counting(10);
+    cout << endl;
+    int check = isPrime(23);
+    if(check){
+        cout << "It's a prime number !!" << endl;
+    }
+    else{
+        cout << "It's not a prime number !!" << endl;
+    }
+
+    int a = 2;
+    int b = 3;
+
+    cout << "Before swap : " << a << " " << b << endl;
+
+    pass_by_value(a,b);
+
+    cout << "After swap (Pass by value) : " << a << " " << b << endl;
+    pass_by_reference(a,b);
+    cout << "After swap (Pass by reference) : " << a << " " << b << endl;
 
     return 0;
 }

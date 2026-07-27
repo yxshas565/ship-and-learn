@@ -119,12 +119,65 @@ bool isPowerOfTwo(int n) {
         return true;
     }
 
+vector <int> plusOne(vector<int>& digits) {
+    // string s = "";
+    // for (int i=0; i<digits.size(); i++){
+    //     int b = digits[i];
+    //     string a = to_string(b);
+    //     s += a;
+    // }
+    // int orginal_num = stoi(s);
+    // orginal_num += 1;
+
+    // string new_s = to_string(orginal_num);
+    // int i = 1;
+    // if (s.size() == new_s.size()){
+    //     while (orginal_num > 0){
+    //         int bit = orginal_num % 10;
+    //         digits[digits.size() - i] = bit;
+    //         i++;
+    //         orginal_num /= 10;
+    //     }
+    // }
+    // else{
+    //     while (orginal_num > 1){
+    //         int bit = orginal_num % 10;
+    //         digits[digits.size() - i] = bit;
+    //         i++;
+    //         orginal_num /= 10;
+    //     }
+    //     digits.insert(digits.begin(),1);
+    // }
+    // return digits;
+
+
+    for (int i=digits.size()-1; i>=0; i--){
+        if (digits[i] < 9){
+            digits[i] += 1;
+            return digits;
+        }
+        else{
+            digits[i] = 0;
+        }
+    }
+    digits.insert(digits.begin(),1);
+    return digits;
+}
+        
+
 int main(){
-    subtractProductAndSum(234);
-    hammingWeight(2147483645);
-    reverse(-123);
-    bitwiseComplement(5);
-    cout << reverse_integer(-123);
-    cout << isPowerOfTwo(258);
+    // subtractProductAndSum(234);
+    // hammingWeight(2147483645);
+    // reverse(-123);
+    // bitwiseComplement(5);
+    // cout << reverse_integer(-123);
+    // cout << isPowerOfTwo(258);
+
+    vector <int> digits = {9,9,9,9,9,9,9,9,9,9,9,9};
+    plusOne(digits);
+
+    for (int x : digits){
+        cout << x << " ";
+    }
     cout << endl;
 }
