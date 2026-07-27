@@ -163,15 +163,125 @@ vector <int> plusOne(vector<int>& digits) {
     digits.insert(digits.begin(),1);
     return digits;
 }
+
+int mySqrt(int x) {
+    if (x == 1 || x == 0){
+        return x;
+    }
+    int left,right,mid;
+    left = 0;
+    right = x;
+    
+
+    // while (left <= right){
+    //     mid = (left + right) / 2;
+    //     if (mid*mid <= x){
+    //         return mid;
+    //     }
+    //     else if (mid*mid > x){
+    //         right--;
+    //     }
+    //     else{
+    //         left++;
+    //     }
+    // }
+    int ans = 0;
+
+while(left <= right){
+
+    mid = left + (right-left)/2;
+
+    long long square = 1LL * mid * mid;
+
+    if(square == x){
+        return mid;
+    }
+
+    else if(square < x){
+
+        ans = mid;          // save possible answer
+        left = mid + 1;     // search for a bigger one
+    }
+
+    else{
+
+        right = mid - 1;    // search left
+    }
+}
+
+return ans;
+    
+}
+
+int addDigits(int num) {
+    int sum = INT_MAX;
+    while (num >= 10){
+        sum = 0;
+        while (num > 0){
+            int bit = num % 10;
+            sum += bit;
+            num /= 10;
+        }
+        num = sum;
+    }
+    return num;
+}
+
+bool isPerfectSquare(int num) {
+    if (num == 0 || num == 1){
+        return true;
+    }
+    int left,right,mid;
+
+    left = 0;
+    right = num;
+
+    while (left <= right){
+        mid = (left + right) / 2;
+        long long square = 1LL * mid * mid;
+        if (square == num){
+            return true;
+        }
+        else if (square > num){
+            right = mid - 1;
+        }
+        else{
+            left = mid + 1;
+        }
+    }
+    return false;
+}
+
+bool isPowerOfThree(int n) {
+    bool isPower = false;
+    if (n <= 0){
+        isPower = false;
+    }
+    else if (n == 1){
+        isPower = true;
+    }
+    else{
+        while (n%3 == 0){
+            n/=3;
+        }
+        if(n == 1){
+            isPower = true;
+        }
+        else{
+            isPower = false;
+        }
+    }
+    return isPower;
+}
         
 
 int main(){
-    // subtractProductAndSum(234);
-    // hammingWeight(2147483645);
-    // reverse(-123);
-    // bitwiseComplement(5);
-    // cout << reverse_integer(-123);
-    // cout << isPowerOfTwo(258);
+    subtractProductAndSum(234);
+    hammingWeight(2147483645);
+    reverse(-123);
+    bitwiseComplement(5);
+    cout << reverse_integer(-123);
+    cout << isPowerOfTwo(258);
 
     vector <int> digits = {9,9,9,9,9,9,9,9,9,9,9,9};
     plusOne(digits);
@@ -179,5 +289,12 @@ int main(){
     for (int x : digits){
         cout << x << " ";
     }
+
+    cout << mySqrt(8);
+    cout << addDigits(99);
+
+    cout << isPerfectSquare(2000105819);
+    cout << isPowerOfThree(45);
+
     cout << endl;
 }
