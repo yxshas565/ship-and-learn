@@ -131,25 +131,25 @@ void reverse_num(int x){
 
 
 int main(){
-    // int a = 5;
-    // int b = -3;
+    int a = 5;
+    int b = -3;
 
-    // cout << bitwise_AND(a,b) << endl;
-    // cout << bitwise_OR(a,b) << endl;
-    // cout << bitwise_NOT(a) << endl;
-    // cout << bitwise_XOR(a,b) << endl;
+    cout << bitwise_AND(a,b) << endl;
+    cout << bitwise_OR(a,b) << endl;
+    cout << bitwise_NOT(a) << endl;
+    cout << bitwise_XOR(a,b) << endl;
 
-    // cout << left_shift(5,2) << endl; // 20 --> a * 2^b
-    // cout << right_shift(10,2) << endl; // 2 --> a / 2^b
-
-
-    // fibonacci_series(10);
-    // cout << endl;
-    // prime_or_not(21);
-    // cout << endl;
+    cout << left_shift(5,2) << endl; // 20 --> a * 2^b
+    cout << right_shift(10,2) << endl; // 2 --> a / 2^b
 
 
-    // decimal_to_binary(128);
+    fibonacci_series(10);
+    cout << endl;
+    prime_or_not(21);
+    cout << endl;
+
+
+    decimal_to_binary(128);
     reverse_num(-121);
     
     return 0;
