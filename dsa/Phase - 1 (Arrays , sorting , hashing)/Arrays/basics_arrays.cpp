@@ -168,6 +168,30 @@ void intersection_diff_array(int arr1[], int size1, int arr2[], int size2){
         cout << x << " ";
     }
     cout << endl;
+
+
+    // Optimised approach
+
+    // int i = 0;
+    // int j = 0;
+
+    // while(i < size1 && j < size2)
+    // {
+    //     if(arr1[i] == arr2[j])
+    //     {
+    //         // store
+    //         i++;
+    //         j++;
+    //     }
+    //     else if(arr1[i] < arr2[j])
+    //     {
+    //         i++;
+    //     }
+    //     else
+    //     {
+    //         j++;
+    //     }
+    // }
 }
 
 
