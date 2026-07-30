@@ -63,3 +63,17 @@ O(1) >> O(log n) >> O(root(n)) >> O(n) >> O(n log n) >> O(n^2) >> O(n^2 log n) >
 
 2. Space complexity :- It refers to amount of memory an algorthm uses as a function of the input size. It's a meause of how much memory an algorithm requires to execute and solve a problem
 
+
+i *= 2 or i /= 2 loops → usually O(log n) iterations
+T(n) = 2T(...) + work
+
+T(n) --> The total time taken by a function for an input of size "n".
+"Current function work + Time taken by recursive call"   -->  In case of recursion
+
+
+func(n-1)	            T(n)=T(n-1)+1	    O(n)
+func(n-1) + loop of n   T(n)=T(n-1)+n       O(n²)
+func(n/2)	            T(n)=T(n/2)+1	    O(log n)
+func(n-1) twice	        T(n)=2T(n-1)+1	    O(2ⁿ)
+Loop + func(n/2)	    T(n)=T(n/2)+n	    O(n)
+Permutations	        T(n)=nT(n-1)	    O(n!)
