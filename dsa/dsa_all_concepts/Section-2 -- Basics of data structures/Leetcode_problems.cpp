@@ -329,6 +329,53 @@ return nums.size();
 }
 
 
+vector<int> spiralOrder(vector<vector<int>>& matrix) {
+
+    vector<int> ans;
+
+    int rows = matrix.size();
+    int cols = matrix[0].size();
+
+    int top = 0;
+    int bottom = rows - 1;
+    int left = 0;
+    int right = cols - 1;
+
+    while (top <= bottom && left <= right) {
+
+        // Move Right
+        for (int i = left; i <= right; i++) {
+            ans.push_back(matrix[top][i]);
+        }
+        top++;
+
+        // Move Down
+        for (int i = top; i <= bottom; i++) {
+            ans.push_back(matrix[i][right]);
+        }
+        right--;
+
+        // Move Left
+        if (top <= bottom) {
+            for (int i = right; i >= left; i--) {
+                ans.push_back(matrix[bottom][i]);
+            }
+            bottom--;
+        }
+
+        // Move Up
+        if (left <= right) {
+            for (int i = bottom; i >= top; i--) {
+                ans.push_back(matrix[i][left]);
+            }
+            left++;
+        }
+    }
+
+    return ans;
+}
+
+
 
 int main(){
     // vector <int> numbers = {-1,0};
@@ -352,13 +399,16 @@ int main(){
     // vector <int> pivot = {10,-10,10,-10,0};
     // cout << pivotIndex(pivot);
 
-    vector <int> duplicates = {1,1,1,1};
-    removeDuplicates(duplicates);
-    int size = duplicates.size();
-    cout << "Size : " << size << endl;
-    for (int x : duplicates){
-        cout << x << " ";
-    }
+    // vector <int> duplicates = {1,1,1,1};
+    // removeDuplicates(duplicates);
+    // int size = duplicates.size();
+    // cout << "Size : " << size << endl;
+    // for (int x : duplicates){
+    //     cout << x << " ";
+    // }
+
+    vector<vector <int>> matrix = {{1,2,3},{4,5,6},{7,8,9}};
+    spiralOrder(matrix);
 
     return 0;
 }
