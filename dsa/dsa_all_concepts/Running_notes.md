@@ -534,3 +534,36 @@ Opposite End Two Pointers
 - Running cumulative sum.
 - Subarray sum problems.
 - Need to avoid repeated summation.
+
+
+
+
+
+## Matrices 
+
+A matrix is a 2D array --> rows * columns
+Elements stored in row major order (contiguos memory in C++)
+
+
+
+## Hashing -- set
+
+Set --> stores unique , sorted elements 
+Operation --> O(log(n))
+
+
+un-ordered set
+it stores unique elements but no order
+avg : O(1) , worst : O(n)
+
+
+## Hashing -- map
+
+map --> stores key-value pair where keys are unique , sorted by default
+implemented using red-black tree (balanaced bst)
+operations : insert , erase , find , count --> O(log n)
+
+
+unordered map --> no ordering here not sorted
+implemented using hash tables
+avg --> O(1) , lookup/insert but worst case --> O(n)

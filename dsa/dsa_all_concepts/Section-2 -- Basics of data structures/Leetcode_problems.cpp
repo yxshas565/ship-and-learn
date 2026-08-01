@@ -376,6 +376,256 @@ vector<int> spiralOrder(vector<vector<int>>& matrix) {
 }
 
 
+double findMaxAverage(vector<int>& nums, int k) {
+    double avg = INT_MIN;
+    double prev_avg = INT_MIN;
+    double a,b;
+    double sum = 0;
+    double prev_sum = 0;
+    a = 0;
+    b = (a+k) - 1;
+    while (b < nums.size()){
+        sum = 0;
+        if (a == 0){
+            for (int i=a; i<=b; i++){
+                sum += nums[i];
+                prev_sum = sum;
+            }
+        }
+        else{
+            sum = prev_sum - nums[a-1] + nums[b];
+            prev_sum = sum;
+        }
+        
+        prev_avg = sum/double(k);
+
+        if (prev_avg > avg){
+            avg = prev_avg;
+        }
+        a++;
+        b++;
+    }
+    return avg;
+}
+
+
+
+int subarraySum(vector<int>& nums, int k) {
+    int prev_sum = INT_MIN;
+    int sum = INT_MIN;
+    int isBound = 0;
+
+    int a,b;
+    a = 0; b = 0;
+    int count = 0;
+    while (a < nums.size()){
+        if (b == nums.size()-1 && a!=b){
+            sum = prev_sum + nums[b];
+            a+=1;
+            b = a;
+            prev_sum = sum;
+        }
+        else{
+            if (a == b){
+                sum = nums[a];
+                prev_sum = sum;
+            }
+            else{
+                sum = prev_sum + nums[b];
+                prev_sum = sum;
+            }
+            b++;
+            if (b >= nums.size()){
+                isBound = 1;
+            }
+        }  
+
+
+        if (prev_sum == k){
+            count += 1;
+        }
+
+        if(isBound){
+            break;
+        }
+    }
+    return count;
+}
+
+
+
+int subarraySumAnoth(vector<int>& nums, int k) {
+    unordered_map<int,int> mp;
+
+    mp[0] = 1;
+
+    int prefix = 0;
+    int count = 0;
+
+    for(int i = 0; i < nums.size(); i++) {
+
+        prefix += nums[i];
+
+        if(mp.find(prefix - k) != mp.end())
+            count += mp[prefix - k];
+
+        mp[prefix]++;
+    }
+
+    return count;
+}
+
+int lengthOfLongestSubstring(string s) {
+    // unordered_map<char,int> mp;
+
+    // int i,j;
+    // i = 0;
+    // j = 0;  
+    // int longest = INT_MIN;
+    // int length = 0;
+    // while (j < s.size()){
+    //     char a = s[j];
+
+    //     if (j > mp[a]){
+    //         length = j-i;
+    //         i = mp[a] + 1;
+    //         mp[a] = j;
+    //         j = i;
+    //     }
+    //     else{
+    //         // mp[a] += 1;
+    //         mp[a] = j;
+    //         length = (j-i) + 1;
+    //     }
+    //     if(length > longest){
+    //         longest = length;
+    //     }
+    //     j++;
+    // }
+
+
+    // int i,j;
+    // i = 0; j=0;
+
+    // int longest = INT_MIN;
+    // int length = 0;
+
+    // while (j < s.size()){
+    //     char ch = s[j];
+    //     if(j > mp[ch] && mp.find(ch) != mp.end()){
+    //         length = j-i;
+    //         i++;
+    //         j = i;
+
+    //     }
+    //     else{
+    //         length = j - i + 1;
+    //         mp[ch] = j;
+    //     }
+    //     if(length > longest){
+    //         longest = length;
+    //     }
+    //     j++;
+    // } 
+
+
+    unordered_map<char, int> mp;
+
+    int i = 0, j = 0;
+
+    int longest = 0;
+
+    while (j < s.size()) {
+        char ch = s[j];
+        if (mp.find(ch) != mp.end() && mp[ch] >= i) {
+            i = mp[ch] + 1;
+        }
+
+        mp[ch] = j;
+        // Current window length
+        longest = max(longest, j - i + 1);
+        j++;
+    }
+    
+    return longest;
+}
+
+int maxSubArray(vector<int>& nums) {
+    // int i,j;
+    // i = j = 0;
+    // int sum = INT_MIN;
+    // int prev_sum = INT_MIN;
+    // while (j < nums.size()){
+    //     if (i == j){
+    //         prev_sum = nums[i];
+    //         j++;
+    //     }
+    //     else{
+    //         int a = prev_sum + nums[j];
+    //         if (a > nums[j] && a > nums[i]){
+    //             sum = a;
+    //             j++;
+    //         }
+    //         else{
+    //             if(nums[j] > a){
+    //                 i = j;
+    //                 prev_sum = nums[i];
+    //                 j++;
+    //             }
+    //             else if(nums[i] > a){
+    //                 j++;
+    //             }
+    //         }
+    //     }
+
+    //     if (prev_sum > sum){
+    //         sum = prev_sum;
+    //         prev_sum = sum;
+    //     }
+    // }
+    // return sum;
+
+    int i,j;
+    i = j = 0;
+    int sum = INT_MIN;
+    int prev_sum = INT_MIN;
+
+    i=0; j=1;
+    prev_sum = nums[0];
+    sum = nums[0];
+
+    while (j < nums.size()){
+        // if (i == j && i==0 && j==0){
+        //     prev_sum = nums[i];
+        //     j++;
+        // }
+        // else{
+            int a = prev_sum + nums[j];
+            // int max_num = max(prev_sum,a);
+
+            if (a >= nums[j]){
+                prev_sum = a;
+                j++;
+            }
+            // else if (prev_sum > a){
+            //     j++;
+            // }
+            else{
+                prev_sum = nums[j];
+                i = j;
+                j++;
+            }
+        // }
+        
+            if (prev_sum > sum) {
+                sum = prev_sum;
+            }
+    }
+
+    return sum;
+}
+
+
 
 int main(){
     // vector <int> numbers = {-1,0};
@@ -407,8 +657,24 @@ int main(){
     //     cout << x << " ";
     // }
 
-    vector<vector <int>> matrix = {{1,2,3},{4,5,6},{7,8,9}};
-    spiralOrder(matrix);
+    // vector<vector <int>> matrix = {{1,2,3},{4,5,6},{7,8,9}};
+    // spiralOrder(matrix);
+
+    // vector <int> avg = {1,12,-5,-6,50,3};
+    // int k = 4;
+
+    // cout << findMaxAverage(avg,k);
+
+    // vector <int> nums = {1,2,3,4};
+    // int k = 20;
+    // cout << subarraySum(nums,k);
+
+    // string s = "dvdf";
+    // cout << lengthOfLongestSubstring(s);
+
+
+    vector <int> nums = {5,4,-1,7,8};
+    cout << maxSubArray(nums);
 
     return 0;
 }
