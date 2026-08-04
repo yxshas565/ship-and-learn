@@ -20,6 +20,14 @@ void func(struct Test &t1){
     t1.arr[0] = 5;
 }
 
+struct Rectangle *func_new(){
+    struct Rectangle *ptr;
+    ptr = new Rectangle;
+    ptr->breadth = 23;
+    ptr->length = 45;
+    return ptr;
+}
+
 
 int main(){
     struct Rectangle r1 = {4,5};
@@ -30,5 +38,9 @@ int main(){
     cout << t1.arr[0] << endl;
     func(t1);
     cout << t1.arr[0] << endl;
+
+
+    struct Rectangle *ptr = func_new();
+    cout << "Area : " << ptr->breadth * ptr->length << endl;
     return 0;
 }

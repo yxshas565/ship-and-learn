@@ -72,3 +72,5 @@ We cant dynamically use a pointer to store STL of C++ style data structures so b
 --> When we pass struct into function which is by default pass by value even if it contains array the array inside strcut is forced to become pass by value there even though by default array is pass by address
 
 
+--> Highest level of porgramming which can be done using C langauge is using structures and functions and then we will be continuing in C++ using OOP's
+
