@@ -85,3 +85,86 @@ Global and static used same variable and only updates each time if any operation
 3. Tree recursion
 4. Indirect recursion
 5. Nested recursion
+
+
+# Tail recursion
+
+Recursive function where recursive call is the last func. then it is called tail recursion
+Everythng is performed in calling phase itself
+
+In case of tail recursion loop is more effecient since it takes less space in terms of complexity
+
+
+
+# Head recursion
+
+Recursive function is called at first itself inside the conditional or terminating case
+It is not as easy as tail recursion to convert in form of loops
+
+
+# Linear recursion
+Recursive func is called only once
+
+fun(n){
+    if(){
+        ...
+        ....
+        fun(n-1);
+        ....
+        ...
+    }
+}
+
+# Tree recursion
+
+Recursive function is called more than once 
+
+fun(n){
+    if(){
+        ...
+        ....
+        fun(n-1);
+        ....
+        fun(n-1);
+        ...
+    }
+}
+
+
+
+# Indirect recursion
+
+There may be more than 1 recursive calls but in a circular fashion. One func calling other and so on...
+
+void funcA(int n){
+    if(){
+        {
+            ....
+            B(n-1);
+            ....
+        }
+    }
+}
+
+void funB(int n){
+    if(){
+        ...
+        ...
+        ...
+        A(n-3);
+    }
+}
+
+
+
+# Nested recursion
+
+In nested recursion , recursive function will pass as a parameter to one more function
+
+void func(int n){
+    if(){
+        ...
+        fun(fun(n-1));
+        ...
+    }
+}
