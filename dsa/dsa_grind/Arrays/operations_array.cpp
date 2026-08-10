@@ -240,6 +240,60 @@ int avg(arr arr1){
 }
 
 
+// Time compelxity : O(n)
+// Space complexity : O(1)
+void reverse_arr(int arr[], int size){
+    for (int i=0; i<size/2; i++){
+        int temp = arr[i];
+        arr[i] = arr[size-i-1];
+        arr[size-i-1] = temp;
+    }
+}
+
+// Time compelxity : O(n + n) = O(2n) = O(n)
+// Space complexity : O(1)
+void left_shift(int shift, int arr[], int size){
+    for(int i=0; i<size-shift; i++){
+        arr[i] = arr[i+shift];
+    }
+    for(int i=size-shift; i<size; i++){
+        arr[i] = -1;
+    }
+}
+
+// Time compelxity : O(n) + O(shift) = O(n)
+// Space complexity : O(1)
+void right_shift(int shift, int arr[], int size){
+    for(int i=size-1; i>=shift; i--){
+        arr[i] = arr[i-2];
+    }
+    for(int i=0; i<shift; i++){
+        arr[i] = -1;
+    }
+}
+
+// Time compelxity : O(n) + O(shift) = O(n)
+// Space complexity : O(1)
+void left_rotate(int arr[], int size){
+    int store = arr[0];
+    for(int i=0; i<size-1; i++){
+        arr[i] = arr[i+1];
+    }
+    arr[size-1] = store;
+}
+
+// Time compelxity : O(n) + O(shift) = O(n)
+// Space complexity : O(1)
+void right_rotate(int arr[], int size){
+    int store = arr[size-1];
+    for(int i=size-1; i>0; i--){
+        arr[i] = arr[i-1];
+    }
+    arr[0] = store;
+}
+
+
+
 int main(){
     arr arr1;
     array_creation(arr1);
@@ -282,6 +336,53 @@ int main(){
     cout << sum(arr1) << endl;
     cout << sum_recursive(arr1,0,0) << endl;
     cout << avg(arr1) << endl;
+
+
+    int arr[] = {8,3,9,15,6,10,7,2,12,4};
+    int size = sizeof(arr)/sizeof(arr[0]);
+
+    cout << "Orginal array : ";
+    for (int i : arr){
+        cout << i << " ";
+    }
+    cout << endl;
+
+    reverse_arr(arr,size);
+    cout << "Reverse array : ";
+    for (int i : arr){
+        cout << i << " ";
+    }
+    cout << endl;
+
+    left_shift(2,arr,size);
+    cout << "Left shifted array : ";
+    for (int i : arr){
+        cout << i << " ";
+    }
+    cout << endl;
+
+    right_shift(2,arr,size);
+    cout << "Right shifted array : ";
+    for (int i : arr){
+        cout << i << " ";
+    }
+    cout << endl;
+
+    left_rotate(arr,size);
+    cout << "Left rotate : ";
+    for (int i : arr){
+        cout << i << " ";
+    }
+    cout << endl;
+
+
+    right_rotate(arr,size);
+    cout << "Right rotate : ";
+    for (int i : arr){
+        cout << i << " ";
+    }
+    cout << endl;
+
 
     return 0;
 }
