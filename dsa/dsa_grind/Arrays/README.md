@@ -145,3 +145,49 @@ O(n)
 
 Row major :- left to right
 Col major :- right to left
+
+
+
+
+Eg:- A[1...10] [1....15]
+
+L0 = 100;
+
+row-major formula :- for 0-indexing
+A[i][j] = 100 + (i * 15 + j) * 4
+        = 100 + 60i + 4j
+        = 25 + 15i + j
+        = 15i + j + 25
+
+
+row-major formula :- for 1-indexing
+A[i][j] = 100 + (i-1 * 15 + j-1) * 4
+        = 100 + (15i - 15 + j - 1) * 4
+        = 100 + (15i + j - 16) * 4
+        = 100 + 60i + 4j - 64
+        = 36 + 60i + 4j
+        = 15i + j + 9
+
+
+
+
+
+## Array as ADT  
+
+ADT --> representation of data and set of operations on data 
+Array is a data strcuture provided by almost every programming languages
+
+Inverse of power = log
+
+
+Operations :-
+1. display()
+2. add(x), append(x)
+3. insert(index,x)
+4. delete(x)
+5. search(x)
+6. get(index)
+7. set(index,x)
+8. max()/min()
+9. reverse()
+10. shift(), rotate()
