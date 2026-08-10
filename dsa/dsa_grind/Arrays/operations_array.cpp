@@ -11,8 +11,9 @@ typedef struct{
 // Time compelxity : O(n)
 // Space complexity : O(n or size)
 arr array_creation(arr &arr1){
-    cout << "Enter size of array : ";
-    cin >> arr1.size;
+    // cout << "Enter size of array : ";
+    // cin >> arr1.size;
+    arr1.size = 10;
 
     arr1.A = new int[arr1.size];
     arr1.length = 0;
@@ -165,6 +166,79 @@ int binary_search_recursive(int target, arr arr1, int low, int high){
     }
 }
 
+// Time compelxity : O(1)
+// Space complexity : O(1)
+int get(int index, arr arr1){
+    if(index < arr1.length){
+        return arr1.A[index];
+    }
+    else{
+        cout << "Out of bounds !!" << endl;
+    }
+}
+
+// Time compelxity : O(1)
+// Space complexity : O(1)
+int set_ele(int index, int n, arr &arr1){
+    arr1.A[index] = n;
+}
+
+// Time compelxity : O(n)
+// Space complexity : O(1)
+int max(arr arr1){
+    int max_ele = INT_MIN;
+    for(int i=0; i<arr1.length; i++){
+        if(arr1.A[i] > max_ele){
+            max_ele = arr1.A[i];
+        }
+    }
+
+    return max_ele;
+}
+
+// Time compelxity : O(n)
+// Space complexity : O(1)
+int min(arr arr1){
+    int min_ele = INT_MAX;
+    for(int i=0; i<arr1.length; i++){
+        if(arr1.A[i] < min_ele){
+            min_ele = arr1.A[i];
+        }
+    }
+
+    return min_ele;
+}
+
+// Time compelxity : O(n)
+// Space complexity : O(1)
+int sum(arr arr1){
+    int sum = 0;
+    for(int i=0; i<arr1.length; i++){
+        sum += arr1.A[i];
+    }
+    return sum;
+}
+
+// Time compelxity : O(n)
+// Space complexity : O(n)
+int sum_recursive(arr arr1,int i, int sum){
+    if(i >= arr1.length){
+        return 0;
+    }
+    sum = arr1.A[i];
+    return sum + sum_recursive(arr1,i+1,sum);
+}
+
+// Time compelxity : O(n)
+// Space complexity : O(1)
+int avg(arr arr1){
+    int sum = 0;
+    for(int i=0; i<arr1.length; i++){
+        sum += arr1.A[i];
+    }
+    return sum/arr1.length;
+}
+
 
 int main(){
     arr arr1;
@@ -199,7 +273,15 @@ int main(){
     cout << binary_search_recursive(17 ,arr1, 0, arr1.length-1) << endl;
     cout << endl << endl;
 
-
+    cout << get(5,arr1);
+    set_ele(5,123456,arr1);
+    cout << endl;
+    display_array(arr1);
+    cout << max(arr1) << endl;
+    cout << min(arr1) << endl;
+    cout << sum(arr1) << endl;
+    cout << sum_recursive(arr1,0,0) << endl;
+    cout << avg(arr1) << endl;
 
     return 0;
 }

@@ -191,3 +191,25 @@ Operations :-
 8. max()/min()
 9. reverse()
 10. shift(), rotate()
+
+
+
+## Binary search analysis
+
+Avg. case : 1 + 1 * 2 + 2 * 4 + 3 * 8 + ......
+            1 + 1 * 2^1 + 2 * 2^2 + ....
+            summation i=1 to n i * 2 ^ i
+
+            O(log n) --> which is also height of a tree
+
+Best case : O(1)
+Worst case : O(log (n))
+Avg. case : O(log (n))
+
+E is approx. n log(n)
+
+Avg case. for successful search : 1 + I / n = approx. log(n)
+Avg case. for un-successful search : E / n+1 = nlog(n)/n+1 apporox. log(n)
+
+External nodes in tree = Total internal nodes + 2 * no.of nodes
+no.of external nodes = no.of internal nodes + 1
