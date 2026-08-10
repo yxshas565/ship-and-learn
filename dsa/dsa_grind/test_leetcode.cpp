@@ -81,7 +81,97 @@ void myAtoi(string s) {
         }
     }
 
+
+double minPrice(vector<int>& prices, vector<int>& discounts) {
+    sort(prices.begin(),prices.end());
+    sort(discounts.begin(),discounts.end());
+    
+    reverse(prices.begin(),prices.end());
+    reverse(discounts.begin(),discounts.end());
+
+    double p,d;
+    
+    double sum = 0;
+    int store = 0;
+    int j;
+
+    for (j=0; j<min(discounts.size(),prices.size()); j++){
+        p = prices[j]; d = discounts[j];
+        double formula = (p * (100 - d)) / 100;
+        // cout << formula << endl;
+        sum += formula;
+        store = j;
+    }
+
+
+    if(discounts.size() < prices.size()){
+        for(int i=j; i<prices.size(); i++){
+            sum += prices[i];
+        }
+    }
+
+    return sum;
+
+}
+
+
+
+vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+    vector <vector <int>> final_ans;
+    // int sum = 0;
+    // for (int i=0; i<candidates.size(); i++){
+    //     sum = 0;
+    //     vector <int> temp;
+    //     int ele = candidates[i];
+    //     if(target % candidates[i] == 0){
+    //         temp = vector<int> (target/candidates[i],candidates[i]);
+    //     }
+
+    //     else{
+    //         int mod = target%candidates[i];
+    //         for(int i=0; i<candidates.size(); i++){
+    //             if(candidates[i] == mod){
+    //                 temp = vector <int> (target/candidates[i],);
+    //             }
+    //         }
+    //     }
+
+
+    //     final_ans.push_back(temp);
+
+    // }
+
+
+    int sum = 0;
+    int i,j;
+    i = 0;
+    j = 0;
+    while(i<candidates.size()){
+        vector <int> temp;
+        int k = i;
+        int mod = target % candidates[i];
+        int val = target / candidates[i];
+        if(mod == 0){
+            temp = vector <int> (target/candidates[i],candidates[i]);
+        }
+        else{
+            for(int i=0; i<candidates.size(); i++){
+                if(mod == candidates[i]){
+                    temp = {candidates[i],candidates[k],candidates[k],candidates[k]};
+                }
+                else{
+                    int new_val = target-val;
+                    // again we have to loop such that to find 
+                }
+            }
+        }
+    }
+}
+
 int main(){
-    myAtoi(" -042");
+    // myAtoi(" -042");
+    vector <int> arr1 = {7,3,9};
+    vector <int> arr2 = {100,100};
+    cout << minPrice(arr1,arr2);
     return 0;
 }
