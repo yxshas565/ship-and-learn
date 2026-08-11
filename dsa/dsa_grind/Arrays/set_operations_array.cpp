@@ -112,8 +112,45 @@ void intersection_unsorted(int arr1[], int size1, int arr2[], int size2, vector 
     }
 }
 
+// A - B
+void difference_unsorted(int arr1[], int size1, int arr2[], int size2, vector <int> &merged_arr){
+    for(int i=0; i<size1; i++){
+        int isPresent = 0;
+        for(int j=0; j<size2; j++){
+            if(arr1[i] == arr2[j]){
+                isPresent = 1;
+                break;
+            }
+        }
+        if(!isPresent){
+            merged_arr.push_back(arr1[i]);
+        }
+    }
+}
 
-void difference(); // similar way 
+void difference_sorted(int arr1[], int size1, int arr2[], int size2, vector <int> &merged_arr){
+    sort(arr1,arr1 + size1);
+    sort(arr2,arr2 + size2);
+    int i,j;
+    i = j = 0;
+    int k = 0;
+    while(i<size1 && j<size2){
+        if(arr1[i] > arr2[j]){
+            j++;
+        }
+        else if(arr1[i] < arr2[j]){
+            merged_arr.push_back(arr1[i]);
+            i++;
+        }
+        else{
+            i++;
+            j++;
+        }
+    }    
+}
+
+
+
 void set_membership(); // to check whethere element belons to array/set or not
 
 int main(){
@@ -122,8 +159,6 @@ int main(){
     int arr2[] = {12,4,7,2,5};
     int size2 = sizeof(arr2)/sizeof(arr2[0]);
 
-    // int union_arr[size1+size2];
-    // int union_unsorted[size1 + size2];
     vector <int> union_arr;
     vector <int> union_unsorted;
     int length1, length2;
@@ -140,8 +175,6 @@ int main(){
     }
     cout << endl;
 
-    // int intersection_sorted_arr[size1+size2];
-    // int intersection_unsorted_arr[size1+size2];
     vector <int> intersection_sorted_arr;
     vector <int> intersection_unsorted_arr;
     intersection_sorted(arr1,size1,arr2,size2,intersection_sorted_arr);
@@ -157,5 +190,21 @@ int main(){
     }
     cout << endl;
 
+
+    vector <int> difference_unsorted_arr;
+    vector <int> difference_sorted_arr;
+    
+    difference_unsorted(arr1,size1,arr2,size2,difference_unsorted_arr);
+    cout << "Difference of 2 arrays (Un-sorted) : ";
+    for (int i : difference_unsorted_arr){
+        cout << i << " ";
+    }
+    difference_sorted(arr1,size1,arr2,size2,difference_sorted_arr);
+    cout << endl;
+    cout << "Difference of 2 arrays (Sorted) : ";
+    for (int i : difference_sorted_arr){
+        cout << i << " ";
+    }
+    cout << endl;
     return 0;
 }
