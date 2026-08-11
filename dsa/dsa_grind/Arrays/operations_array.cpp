@@ -105,7 +105,8 @@ int linear_search_recursive(int target, arr arr1, int i){
     }
 }
     
-
+// Time compelxity : O(n)
+// Space complexity : O(1)
 int linear_search_optimised(int target, arr &arr1){
     // Transposition --> swap with prev. element if target is found
     // Move to head --> swap with first element if target is found

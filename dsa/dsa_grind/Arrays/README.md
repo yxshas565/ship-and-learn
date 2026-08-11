@@ -213,3 +213,20 @@ Avg case. for un-successful search : E / n+1 = nlog(n)/n+1 apporox. log(n)
 
 External nodes in tree = Total internal nodes + 2 * no.of nodes
 no.of external nodes = no.of internal nodes + 1
+
+
+
+## Binary operations on array
+
+1. append
+2. concat
+3. compare
+4. copy
+
+
+## Set operations on array
+
+1. union
+2. intersection
+3. difference
+4. set membership
