@@ -18,5 +18,6 @@ int main(){
         i++;
     }
     cout << "Current length : " << length << endl;
+    
     return 0;
 }

@@ -29,3 +29,20 @@ To calculate exact length iterate a loop from 0 to until found '\0' which is ter
 
 
 In C we use gets(char name); // to print even whitespaces or entire thing
+
+
+Bitwise operations :- 
+
+LSB --> 2^0 th pos ie. 0th index
+MSB --> 2^7 th pos ie. 7th index
+
+1. left shift "<<" --> left shift by 1 pos. (a blank bits is 0) ==> a = a << 2 --> a * (2 ^ left shift)
+2. Bits ORing (Merging) --> bitwise OR (bit is compared with bit)
+3. Bits ANDing (Masking) --> bitwise AND (bit is compared with bit)
+
+We perform bitwise AND to check whether bit is set or not --> ie. particular bit pos is 0 or 1
+We perform bitwise OR to set a bit to ON from OFF
+
+
+To check a bit whether on or off --> masking (Bitwise AND)
+To set a bit to on --> masking (Bitwise OR)
