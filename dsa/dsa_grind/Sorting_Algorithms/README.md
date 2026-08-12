@@ -92,3 +92,24 @@ Space complexity : O(n)
 
 It is input independent
 Merge sort is stable algorithm
+
+
+
+
+5. Quick sort
+
+
+Divide → recursively sort → merge
+This is also a divide and conquer algorithm
+
+We have to arrange such that --> elements smaller than pivot | pivot | elements larger than pivot
+
+
+We usually follow lumito partitioning --> where each time partition will be done from last ie. pivot will be pointing to last element
+
+|                 |   Best/Average |     Worst |
+| --------------- | -------------: | --------: |
+| Time            |   O(n log n)   |   O(n²)   |
+| Auxiliary space |     O(log n)   |    O(n)   |
+
+It is not stable and input dependent algorithm
