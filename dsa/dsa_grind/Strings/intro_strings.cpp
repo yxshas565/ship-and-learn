@@ -18,6 +18,26 @@ int main(){
         i++;
     }
     cout << "Current length : " << length << endl;
-    
+
+
+    int a = 5;
+
+    if(a & (1 << 0)){
+        cout << "Bit is set";
+    }
+    else{
+        cout << "Bit is not set";
+    }
+
+
+    int b = 15;
+    for(int i=0,j = 1; i<(sizeof(int) * 8); i++,j++){
+        if(b & (1 << i)){
+            cout << "Bit " << i << " is set" << endl;
+        }
+        else{
+            cout << "Bit " << i << " is not set" << endl;
+        }
+    }
     return 0;
 }

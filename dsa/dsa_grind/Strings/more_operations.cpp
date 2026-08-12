@@ -100,7 +100,24 @@ void duplicates_string_bits(string s){
 
 // anagram our basically 2 strings of same set of alphabets
 void check_anagram(string a, string b){
-    
+    int arr[122-97 + 1] = {};
+    for(int i=0; i<a.size(); i++){
+        arr[a[i] - 97] += 1;
+    }
+
+    for(int j=0; j<b.size(); j++){
+        if(arr[b[j] - 97] != 0){
+            arr[b[j] - 97] -= 1;
+        }
+        else{
+            cout << "Not an anagram" << endl;
+            return;
+        }
+    }
+
+    cout << "It is an anagram" << endl;
+
+    // If no duplicate letters then we can use bit set also
 }
 
 
@@ -132,5 +149,9 @@ int main(){
     duplicates_string_other_letters("abcdefghi");
     duplicates_string_hash_table("zabcd");
     duplicates_string_bits("ababab");
+
+
+    cout << endl << endl;
+    check_anagram("verbose","observe");
     return 0;
 }

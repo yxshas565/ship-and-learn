@@ -46,3 +46,16 @@ We perform bitwise OR to set a bit to ON from OFF
 
 To check a bit whether on or off --> masking (Bitwise AND)
 To set a bit to on --> masking (Bitwise OR)
+
+
+// CHECK
+a & (1 << n)
+
+// SET / ON
+a |= (1 << n)
+
+// CLEAR / OFF
+a &= ~(1 << n)
+
+// TOGGLE (flipping the bit)
+a ^= (1 << n)
