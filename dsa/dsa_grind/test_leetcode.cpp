@@ -168,10 +168,47 @@ vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
     }
 }
 
+
+
+int maxSubarrayLength(vector<int>& nums, int k) {
+    int max = INT_MIN;
+    for(int i=0; i<nums.size(); i++){
+        if(nums[i] > max){
+            max = nums[i];
+        }
+    }
+
+    vector <int> hash_table(max+1);
+    vector <int> store_final;
+
+    vector <int> temp;
+    for (int i=0; i<nums.size(); i++){
+        int current_cnt = hash_table[nums[i]];
+        if(current_cnt >= k){
+            break;
+        }
+        else{
+            temp.push_back(nums[i]);
+        }
+        hash_table[nums[i]] += 1;
+    }
+
+
+    if(store_final.size() < temp.size()){
+        store_final = temp;
+    }
+
+    return store_final.size();
+}
+
 int main(){
     // myAtoi(" -042");
-    vector <int> arr1 = {7,3,9};
-    vector <int> arr2 = {100,100};
-    cout << minPrice(arr1,arr2);
+    // vector <int> arr1 = {7,3,9};
+    // vector <int> arr2 = {100,100};
+    // cout << minPrice(arr1,arr2);
+
+
+    vector <int> nums = {5,5,5,5,5,5,5};
+    cout << maxSubarrayLength(nums,4);
     return 0;
 }
