@@ -31,6 +31,15 @@ void create(struct sparse *s,int row_size, int col_size, int non_zeo_ele){
     // }
 }
 
+int add(sparse *s1, sparse *s2){
+    // check first if dimensions are same by comparing rows and cols in both sparse matrix the only we can add
+
+    // int *sum = new sparse;
+    // write down the logic here 
+    // Take care of conditions lots of conditons are there 
+
+}
+
 int main(){
     struct sparse s;
 

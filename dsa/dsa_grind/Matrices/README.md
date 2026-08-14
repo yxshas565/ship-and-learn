@@ -169,3 +169,106 @@ Steps:-
 
 
 Similarly we can do subtraction also further done through program
+
+
+Arr1[][]
+0 1 2 3 4 5 --> Index
+1 2 2 3 3 4
+3 1 5 3 5 2
+3 4 7 5 8 6
+
+
+
+Arr2[][]
+0 1 2 3 4 5 --> Index
+1 2 2 3 3 4
+5 2 5 1 3 5
+2 5 6 4 8 9
+
+
+Add arr1[][] + arr2[][] --> size take array upto num_of_non_zero in (1st + 2nd)
+
+0 1 2 3 4 5  6 7 8 --> Index
+1 1 2 2 3 3  3 4 4
+3 5 1 2 1 3  5 2 5
+3 2 4 5 4 13 8 6 9
+
+
+
+
+## Polynomial representation
+
+It is a collection of terms with single variable 'x'
+
+p(x) = 3x^5 + 2x^4 + 5x^2 + 2x + 7
+
+
+# Representation of polynomial
+
+It contains a co-effecient with variable 'x' having power 'n'
+
+Take list and store 
+
+Co-eff. --> 3 2 5 2 7
+Exp     --> 5 4 2 1 0
+
+
+Representation in C :- 
+
+struct Term{
+    int coeff;
+    int exp;
+}
+
+struct Poly{
+    int n;
+    struct Term *t;
+}
+
+
+struct Poly P;
+printf("Enter no of non-zero terms : );
+store as input in P.n
+
+P.t = new Term[P.n];
+
+
+now store them in the dynamically allocated array taking input from user
+
+
+# Evaluation of polynomial 
+
+for(){
+    sum += coeff. * pow(x,n)
+}
+return sum
+
+// calculate sum when 'x' value is known
+
+# Addition of 2 polynomials 
+
+Eg1 :- p1(x) = 5x^4 + 2x^2 + 5
+Eg2 :- p2(x) = 6x^4 + 5x^3 + 9x^2 + 2x + 3
+
+
+Eg1 :- 
+Co-eff. --> 5 2 5
+Exp     --> 4 2 0
+            i
+
+Eg2 :- 
+Co-eff. --> 6 5 9 2 3
+Exp     --> 4 3 2 1 0
+            j
+
+
+take 3 ptr's i,j,k on eg1 and eg2 and sum
+
+if(exp is same add)
+
+
+
+Sum :- 
+Co-eff. --> 11 5 11 2 8
+Exp     --> 4  3 2  1 0
+            k
