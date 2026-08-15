@@ -318,6 +318,120 @@ int longestSubsequence(vector<int>& nums) {
         }
     }
 
+int maximumLengthSubstring(string s) {
+        int hash_table[26+1] = {};
+        int i,j;
+        i = j = 0;
+
+        int max_len = 0;
+
+        while(j < s.size()){
+            int curr_len = 0;
+            char ch = s[j];
+            int cnt = hash_table[ch - 97 + 1];
+
+            if(cnt >= 2){
+                // curr_len = j-i;
+                for(int k=i; k<=j; k++){
+                    hash_table[s[k] - 97 + 1] -= 1;
+                    if(s[k] == ch){
+                        i = k+1;
+                        // j++;
+                        break;
+                    }
+                }   
+
+                curr_len = j-i+1;
+            }
+            else{
+                hash_table[ch - 97 + 1] += 1;
+                curr_len = j-i+1;
+                j++;
+            }
+
+            if(curr_len > max_len){
+                max_len = curr_len;
+            }
+        }
+
+        return max_len;
+
+
+    }
+
+
+void longestRepeating(string s, string queryCharacters, vector<int>& queryIndices) {
+        int size = queryCharacters.size();
+        vector <int> length;
+        for(int i=0; i<size; i++){
+            int index = queryIndices[i];
+            char ch = queryCharacters[i];
+            s[index] = ch;
+
+            int hash_table[27] = {};
+
+
+            // map <char,int> mp;
+
+            // for(int i=0; s[i] != '\0'; i++){
+            //     if(mp[s[i]] == 0){
+            //         mp[s[i]] = 1;
+            //         hash_table[s[i] - 97 + 1] = i;
+            //     }
+            //     else{
+            //         int val = hash_table[s[i] - 97];
+            //         if(val+1 == i){
+            //             mp[s[i]] += 1;
+            //         }
+            //         else{
+                         
+            //         }
+            //     }
+            // }
+
+            vector<pair<char, int>> runs;
+
+            int count = 1;
+
+            for(int i = 0; i < s.size(); i++){
+
+                if(i > 0 && s[i] == s[i-1]){
+                    count++;
+                }
+                else{
+                    if(i > 0){
+                        runs.push_back({s[i-1], count});
+                    }
+
+                    count = 1;
+                }
+            }
+
+            runs.push_back({s.back(), count});
+
+            int max = INT_MIN;
+
+            // for(auto x : mp){
+            //     if(x.second > max){
+            //         max = x.second;
+            //     }
+            // }
+
+            for(auto p : runs){
+                if(p.second > max){
+                    max = p.second;
+                }
+            }
+            
+
+            length.push_back(max);
+        }   
+
+        for(int i : length){
+            cout << i << " ";
+        }
+    }
+
 
 int main(){
     // myAtoi(" -042");
@@ -329,7 +443,19 @@ int main(){
     // vector <int> nums = {5,5,5,5,5,5,5};
     // cout << maxSubarrayLength(nums,4);
 
-    vector <int> check = {2,3,4};
-    cout << longestSubsequence(check);
+    // vector <int> check = {2,3,4};
+    // cout << longestSubsequence(check);
+
+    // string s = "dcfdddccb";
+    // cout << maximumLengthSubstring(s);
+
+
+    string ch = "dbgmcagale";
+    string queryCharacters = "mf";
+    vector <int> queryIndices = {5,0};
+
+
+    longestRepeating(ch,queryCharacters,queryIndices);
+
     return 0;
 }
