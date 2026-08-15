@@ -201,6 +201,124 @@ int maxSubarrayLength(vector<int>& nums, int k) {
     return store_final.size();
 }
 
+
+int longestSubsequence(vector<int>& nums) {
+        // int i,j;
+        // i = 0;
+        // j = 1;
+
+        // int max_len = 0;
+        // int result = 0;
+        // int XOR_check = 0;
+
+        // if(nums.size() == 2){
+        //     if(nums[0] ^ nums[1]){
+        //         return 2;
+        //     }
+        //     else{
+        //         return 1;
+        //     }
+        // }
+
+        // while(j<nums.size()){
+        //     if(i==0 && j==1){
+        //         XOR_check = nums[i] ^ nums[j];
+        //     }
+        //     else{
+        //         XOR_check = result ^ nums[j];
+        //     }
+
+        //     result = XOR_check;
+
+        //     if(XOR_check){
+        //         if(j-i+1 > max_len){
+        //             max_len = j-i + 1;
+        //         }
+        //         j++;
+        //     }
+        //     else{
+        //         i++;
+        //         j=i+1;
+        //     }
+        // }
+
+        // return max_len;
+
+
+        // int i,j;
+        // i = 0;
+        // j = 1;
+
+        // int max_len = 0;
+        // int XOR_check = 0;
+        // int result = 0;
+
+        // if(nums.size() == 2){
+        //     if(nums[0] ^ nums[1]){
+        //         return 2;
+        //     }
+        //     else{
+        //         return 1;
+        //     }
+        // }
+
+        // while(i<nums.size()-1){
+        //     int curr_len = 0;
+        //     if(j-i == 1){
+        //         result = 0;
+        //         XOR_check = nums[i] ^ nums[j];
+        //     }
+        //     else{
+        //         XOR_check = result ^ nums[j];
+        //     }
+
+        //     result = XOR_check;
+
+        //     if(j == nums.size()-1){
+        //         if(result){
+        //             curr_len = j-i + 1;
+        //             i++;
+        //             j = i+1;
+        //         }
+        //         else{
+        //             i++;
+        //             j = i+1;
+        //         }
+        //     }
+        //     else{
+        //         j++;
+        //     }
+
+        //     if(curr_len > max_len){
+        //         max_len = curr_len;
+        //     }
+        // }
+
+        // return max_len;
+        bool non_zero_exists = true;
+        int result = 0;
+        for(int i=0; i<nums.size(); i++){
+            int XOR = result ^ nums[i];
+            if(nums[i] > 0){
+                non_zero_exists = true;
+            }
+            result = XOR;
+        }
+
+        if(result){
+            return nums.size();
+        }
+        else{
+            if(non_zero_exists){
+                return nums.size()-1;
+            }
+            else{
+                return 0;
+            }
+        }
+    }
+
+
 int main(){
     // myAtoi(" -042");
     // vector <int> arr1 = {7,3,9};
@@ -208,7 +326,10 @@ int main(){
     // cout << minPrice(arr1,arr2);
 
 
-    vector <int> nums = {5,5,5,5,5,5,5};
-    cout << maxSubarrayLength(nums,4);
+    // vector <int> nums = {5,5,5,5,5,5,5};
+    // cout << maxSubarrayLength(nums,4);
+
+    vector <int> check = {2,3,4};
+    cout << longestSubsequence(check);
     return 0;
 }
