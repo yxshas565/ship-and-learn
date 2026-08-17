@@ -433,6 +433,42 @@ void longestRepeating(string s, string queryCharacters, vector<int>& queryIndice
     }
 
 
+int threeSumClosest(vector<int>& nums, int target) {
+    // int i,j,k;
+    // i = 0;
+    // j = 1;
+    // k = 2;
+    // sort(nums.begin(),nums.end());
+    // int sum = nums[i] + nums[j] + nums[k];
+    // int closest_element = INT_MAX;
+    // int prev_sum = sum;
+    // int prev_diff = INT_MAX;
+    // while(k<nums.size()){
+    //     sum = nums[i] + nums[j] + nums[k];
+
+    //     int diff = abs(target - sum);
+    //     if(diff < prev_diff){
+    //         closest_element = sum;
+    //     }
+    //     i++;
+    //     j++;
+    //     k++;
+
+    //     prev_diff = diff;
+    // }
+
+    // return closest_element;
+
+
+    int i,j,k;
+    j = nums.size()/2;
+    i = 0;
+    k = nums.size()-1;
+
+    
+}
+
+
 int main(){
     // myAtoi(" -042");
     // vector <int> arr1 = {7,3,9};
@@ -450,12 +486,19 @@ int main(){
     // cout << maximumLengthSubstring(s);
 
 
-    string ch = "dbgmcagale";
-    string queryCharacters = "mf";
-    vector <int> queryIndices = {5,0};
+    // string ch = "dbgmcagale";
+    // string queryCharacters = "mf";
+    // vector <int> queryIndices = {5,0};
 
 
-    longestRepeating(ch,queryCharacters,queryIndices);
+    // longestRepeating(ch,queryCharacters,queryIndices);
+
+    // vector <int> nums = {10,20,30,40,50,60,70,80,90};
+    // int target = 1;
+    vector <int> nums = {4,0,5,-5,3,3,0,-4,-5};
+    int target = -2;
+
+    cout << threeSumClosest(nums,target);
 
     return 0;
 }
