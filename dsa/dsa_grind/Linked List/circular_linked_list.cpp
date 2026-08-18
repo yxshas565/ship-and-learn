@@ -54,12 +54,12 @@ void displayList(struct Node* head){
     cout << endl << endl;
 }
 
-void insertNode(struct Node* head, int length){
+void insertNode(struct Node* &head, int length){
     int pos;
     cout << "Enter pos to be inserted : ";
     cin >> pos;
 
-    if(pos > length || pos < 1){
+    if(pos > length+1 || pos < 1){
         return;
     }
 
@@ -69,6 +69,24 @@ void insertNode(struct Node* head, int length){
     if(head == NULL){
         head = ptr;
         ptr->next = head;
+    }
+    else if(pos == 1){
+        ptr->next = head;
+
+        struct Node *temp = head;
+        while(temp->next != head){
+            temp = temp->next;
+        }
+        head = ptr;
+        temp->next = head;
+    }
+    else if(pos == length){
+        struct Node *temp = head;
+        while(temp->next != head){
+            temp = temp->next;
+        }
+        ptr->next = head;
+        temp->next = ptr;
     }
     else{
         struct Node *temp,*prev;
@@ -85,7 +103,7 @@ void insertNode(struct Node* head, int length){
 }
 
 
-void deleteNode(struct Node* head, int length){
+void deleteNode(struct Node* &head, int length){
     int pos;
     cout << "Enter pos to be deleted : ";
     cin >> pos;
@@ -95,6 +113,15 @@ void deleteNode(struct Node* head, int length){
     }
     if(head == NULL){
         return;
+    }
+    else if(pos == 1){
+        struct Node *temp = head;
+        while(temp->next != head){
+            temp = temp->next;
+        }
+
+        head = head->next;
+        temp->next = head;
     }
     else{
         struct Node *temp = head;
@@ -124,7 +151,7 @@ int main(){
 
     insertNode(head,length);
     displayList(head);
-
+    length = length_List(head);
     deleteNode(head,length);
     displayList(head);
     return 0;

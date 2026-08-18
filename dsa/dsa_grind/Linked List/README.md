@@ -27,3 +27,24 @@ Linked List is a collection of node where each node contains data nd ptr to next
 Circular Linked List
 
 --> We can either use head as "ptr" or even as a "node" ie. empty node to show that it oints to starting point of the linked List
+
+
+Doubly Linked List
+
+--> List can be accessed bi-directionally
+
+
+Doubly Circular linked list --> It is similar to singly circular but it s circular for doubly linked list 
+Complexity is more effecient in some cases compared to previous singly circular linked list
+
+
+
+
+## Comparison of Linked Lists
+
+| Linked List Type | Space | Insert at First | Insert at Last | Delete at First | Delete at Last | Delete at Any Position | Traversal |
+|------------------|-------|-----------------|----------------|-----------------|----------------|-------------------------|-----------|
+| Singly Linked List | O(n) | O(1) | O(n) | O(1) | O(n) | O(n) | Forward |
+| Circular Singly Linked List | O(n) | O(1) | O(n) | O(1) | O(n) | O(n) | Forward and Circular |
+| Doubly Linked List | O(n) | O(1) | O(n) | O(1) | O(n) | O(n) | Forward and Backward |
+| Doubly Circular Linked List | O(n) | O(1) | O(1) | O(1) | O(1) | O(n) | Circular Forward and Backward |
