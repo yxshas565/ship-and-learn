@@ -251,6 +251,30 @@ void merge(int arr1[], int arr2[], int size1, int size2){
 }
 
 
+bool check_loop_linked_list(struct Node *head){
+    // Use small and big ptr. concept --> smaller one moves one index forward and bigger moves 2 index
+    // There will be a particular index where both meet if they meet then loop exists or else if small one 
+
+    struct Node *i,*j;
+    i = head;
+    j = head;
+
+    bool isLoop = true;
+
+    do{
+        i = i->next;
+        j = j->next->next;
+
+        if(j == NULL){
+            isLoop = false;
+            break;
+        }
+    }while(i != j);
+
+    return isLoop;
+}
+
+
 
 
 int main(){
@@ -284,6 +308,9 @@ int main(){
 
     concatenate(arr1,arr2,size1,size2);
     merge(arr1,arr2,size1,size2);
+
+    cout << endl << endl;
+    cout << check_loop_linked_list(head);
 
 
     return 0;
