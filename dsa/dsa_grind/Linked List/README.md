@@ -22,3 +22,8 @@ Linked List all elements are sepratly created and is linked to one another
 
 Linked List is a collection of node where each node contains data nd ptr to next node
 "head" is a ptr whihc is usually pointing to first node
+
+
+Circular Linked List
+
+--> We can either use head as "ptr" or even as a "node" ie. empty node to show that it oints to starting point of the linked List
