@@ -48,3 +48,42 @@ Complexity is more effecient in some cases compared to previous singly circular 
 | Circular Singly Linked List | O(n) | O(1) | O(n) | O(1) | O(n) | O(n) | Forward and Circular |
 | Doubly Linked List | O(n) | O(1) | O(n) | O(1) | O(n) | O(n) | Forward and Backward |
 | Doubly Circular Linked List | O(n) | O(1) | O(1) | O(1) | O(1) | O(n) | Circular Forward and Backward |
+
+
+
+
+
+## Comparison of array vs linked List
+
+They are 2 physical data structures which is used to create other data structures
+
+# Array
+Array can be created in stack or heap
+Array size is fixed at compile time
+Wastage of space or in-sufficent space for storing elements
+It occupies space exactly space for defined data type
+It can be accessed randomly
+It is a faster access since can be accessed directly
+Insertion takes O(1) to O(n) -- It is equally effecient
+Shifting of data is required here which is costly
+Deletion takes O(1) to O(n) -- again due to shifting it is costly
+Both linear and binary search can be performed ie. worst O(log n)
+Most sorting techniques is designed for array
+
+
+# Linked List
+Linked List created in heap
+Linked list size can be either increased or decreased
+Flexible in terms of creating exact size
+It used double the space since space required for ptr's also
+It is accessed sequentially
+It is slower since it is accessed indirectly
+Insertions takes O(1) to O(n) -- It is equally effecient
+No shifting of data since not expensive as array
+Deletion takes O(1) to O(n) -- It is not expensive since no shifting
+Only linear search can be performed ie. Worst : O(n) , binary : O(n log(n))
+Insertion and merge sort are designed for linked list
+
+
+
+--> Both are better based on conditons and requirements
