@@ -70,11 +70,50 @@ void display_middle_node(struct Node *head){
     };
 
     cout << "Middle element : " << small->data;
+    cout << endl;
 }
 
 // one more method we can use stack to store all address's from start to end and pop out size/2 elemnts and print in the top element
-void display_stack(){
-    
+void display_stack(struct Node *head) {
+    stack<struct Node*> big_ptr;
+    stack<struct Node*> small_ptr;
+
+    struct Node *big, *small;
+    big = small = head;
+
+    while (big != NULL && big->next != NULL) {
+
+        big_ptr.push(big);
+        small_ptr.push(small);
+
+        big = big->next->next;
+        small = small->next;
+    }
+
+    // Push the final positions
+    // if (big != NULL) {
+    //     big_ptr.push(big);
+    // }
+
+    if (small != NULL) {
+        small_ptr.push(small);
+    }
+
+    // Find the common node
+    while (!big_ptr.empty() && !small_ptr.empty()) {
+
+        if (big_ptr.top() == small_ptr.top()) {
+            struct Node *ptr = big_ptr.top();
+
+            cout << "Middle element value : " << ptr->data;
+            return;
+        }
+
+        big_ptr.pop();
+        small_ptr.pop();
+    }
+
+    cout << endl;
 }
 
 
@@ -89,6 +128,7 @@ int main(){
 
     display_middle_element(head,length);
     display_middle_node(head);
+    display_stack(head);
 
     return 0;
 }
