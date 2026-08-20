@@ -272,3 +272,33 @@ Sum :-
 Co-eff. --> 11 5 11 2 8
 Exp     --> 4  3 2  1 0
             k
+
+
+
+
+## Sparse matrix representation (Using Linked List)
+
+Eg:-
+
+0 0 0 0 8 0
+0 0 0 7 0 0
+5 0 0 0 9 0
+0 0 0 0 0 3
+6 0 0 4 0 0
+
+
+Take arr[row_size];
+
+
+Array:-
+0 -->   Node(4 | 8 | NULL)
+1 -->   Node(3 | 7 | NULL)
+2 -->   Node(0 | 5 | -->)  Node(4 | 9 | NULL)
+3 -->   Node(5 | 3 | NULL)
+4 -->   Node(0 | 6 | -->)  Node(3 | 4 | NULL)
+
+
+
+## Polynomial matrix representation (Using Linked list)
+
+Similar way like before one we have to create a struct of array and link each variable
