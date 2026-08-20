@@ -469,6 +469,156 @@ int threeSumClosest(vector<int>& nums, int target) {
 }
 
 
+int largestInteger(vector<int>& nums, int k) {
+        // int max = INT_MIN;
+        // if(nums.size() == k){
+        //     for(int i=0; i<k; i++){
+        //         if(nums[i] > max){
+        //             max = nums[i];
+        //         }
+        //     }
+
+        //     return max;
+        // }
+        // int i,j;
+        // i = 0;
+        // j = k-1;
+
+        // map <int,int> mp;
+
+        // while(j < nums.size()){
+        //     for(int k=i; k<=j; k++){
+        //         // if(mp[nums[k]] > 1){
+        //         //     continue;
+        //         // }
+        //         // else{
+        //         //     mp[nums[k]] += 1;
+        //         // }
+        //         mp[nums[k]] += 1;
+        //     }
+        //     i++;
+        //     j++;
+        // }
+
+        // int ans = INT_MIN;
+
+        // for(auto i : mp){
+        //     cout << i.first << " : " << i.second << endl;
+        // }
+
+        // int ele_present = 0;
+
+        // for(auto i : mp){
+        //     if(i.second == 1){
+        //         if(i.first > ans){
+        //             ans = i.first;
+        //             ele_present = 1;
+        //         }
+        //     }
+        // }
+
+        // if(ele_present){
+        //     return ans;
+        // }
+        // else{
+        //     return -1;
+        // }
+
+
+        int i = 0;
+        int j = nums.size()-1;
+
+        int max = INT_MIN;
+        if(nums.size() == k){
+            for(int i=0; i<k; i++){
+                if(nums[i] > max){
+                    max = nums[i];
+                }
+            }
+            return max;
+        }
+        if(k == 1){
+            for(int i=0; i<nums.size(); i++){
+                if(nums[i] > max){
+                    max = nums[i];
+                }
+            }
+
+            return max;
+        }
+
+
+        int first = nums[i];
+        int isfirst = 1;
+        int last = nums[nums.size()-1];
+        int islast = 1;
+        for(int i=1; i<nums.size()-1; i++){
+            if(nums[i] == first){
+                isfirst = 0;
+                break;
+            }
+            else if(nums[i] == last){
+                islast = 0;
+                break;
+            }
+        }
+
+        if(isfirst && islast){
+            if(first > last){
+                return first;
+            }
+            else{
+                return last;
+            }
+        }
+        else if(isfirst){
+            return first;
+        }
+        else if(islast){
+            return last;
+        }
+        else{
+            return -1;
+        }
+    }
+
+vector<int> resultArray(vector<int>& nums) {
+        vector <int> arr1;
+        vector <int> arr2;
+        int k = 0;
+        arr1.push_back(nums[0]);
+        arr2.push_back(nums[1]);
+        for(int i=2; i<nums.size(); i++){
+            if(arr1[arr1.size()-1] > arr2[arr2.size()-1]){
+                arr1.push_back(nums[i]);
+            }
+            else{
+                arr2.push_back(nums[i]);
+            }
+        }
+
+        int size = nums.size();
+        vector <int> result;
+
+        // int a = 0;
+        for(int i=0; i<arr1.size(); i++){
+            result.push_back(arr1[i]);
+            // a+=1;
+        }
+
+        for(int i=0; i<arr2.size(); i++){
+            result.push_back(arr2[i]);
+            // a+=1;
+        }
+
+        for(int i : result){
+            cout << i << " ";
+        }
+
+        return result;
+    }
+
+
 int main(){
     // myAtoi(" -042");
     // vector <int> arr1 = {7,3,9};
@@ -495,10 +645,19 @@ int main(){
 
     // vector <int> nums = {10,20,30,40,50,60,70,80,90};
     // int target = 1;
-    vector <int> nums = {4,0,5,-5,3,3,0,-4,-5};
-    int target = -2;
+    // vector <int> nums = {4,0,5,-5,3,3,0,-4,-5};
+    // int target = -2;
 
-    cout << threeSumClosest(nums,target);
+    // cout << threeSumClosest(nums,target);
+
+
+    // vector <int> nums = {3,9,2,1,7};
+    // int k = 3;
+
+    // cout << largestInteger(nums,k);
+
+    vector <int> nums = {5,4,3,8};
+    resultArray(nums);
 
     return 0;
 }
