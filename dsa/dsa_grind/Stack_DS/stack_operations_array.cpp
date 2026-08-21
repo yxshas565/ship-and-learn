@@ -46,15 +46,12 @@ void peek(int arr[], int size, int index, int top){
     if(top == -1){
         cout << "Underflow\n";
     }
-    else if(index >= top+1){
-        cout << "Invalid stack\n";
-    }
+    int req_index = (top - index) + 1;
+    if(req_index >= 0){
+        cout << "Element : " << arr[req_index] << endl;
+    }   
     else{
-        int index_ele = top;
-        for(int i=0; i<index; i++){
-            index_ele -= 1;
-        }
-        cout << "Peek element : " << arr[index_ele] << "\n";
+        cout << "Invalid index !!\n";
     }
 }
 
@@ -98,13 +95,13 @@ int main(){
 
     displayStack(arr,size,top);
     pop(arr,size,top);
-    pop(arr,size,top);
+    // pop(arr,size,top);
     // pop(arr,size,top);
     // pop(arr,size,top);
     // pop(arr,size,top);
     displayStack(arr,size,top);
 
-    peek(arr,size,3,top);
+    peek(arr,size,5,top);
     StackTop(arr,size,top);
     isEmpty(top);
     isFull(size,top);

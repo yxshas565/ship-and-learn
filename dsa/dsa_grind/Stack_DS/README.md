@@ -35,3 +35,39 @@ Operations :-
 Stack can be implemnted using 
 1. Array 
 2. Linked List
+
+
+Applications of stack :-
+
+1. Parenthesis matching :- We have to check whether balanced or not
+
+Eg:- ((a+b)*(c-d))
+
+
+
+
+
+
+## Infix to postfix conversion 
+
+Infix notation : Operand operator Operand 
+ie. a + b
+
+Prefix notation : Operator Operand Operand 
+ie. + ab
+
+Postfix notation : Operand Operand Operator  
+ie. ab +
+
+
+Symbol      Precedence
++,-         1
+*,/         2
+()          3 
+
+
+
+1. What is postfix ??
+2. Why postfix ??
+3. Precedence 
+4. Manual conversion
