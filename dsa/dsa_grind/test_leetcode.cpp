@@ -619,6 +619,81 @@ vector<int> resultArray(vector<int>& nums) {
     }
 
 
+long long findKthSmallest(vector<int>& coins, int k) {
+        for(int i=0; i<coins.size(); i++){
+            if(i == 0){
+                int prod = 1;
+                int i = 0;
+                while(i < k){
+                    prod *= coins[i];
+                    i++;
+                }
+            }
+        }
+    }
+
+
+void equalFrequency(string word) {
+        map <char,int> mp;
+        for(int i=0; word[i] != '\0'; i++){
+            mp[word[i]] += 1;
+        }
+
+        
+        vector <int> nums;
+        // int isChanged = 0;
+        for(auto i : mp){
+            nums.push_back(i.second);
+        }
+
+        sort(nums.begin(),nums.end());
+
+        // for(int i : nums){
+        //     cout << i << " ";
+        // }
+
+        int freqChanged = 0;
+        for(int i=0; i<nums.size()-1; i++){
+            if(nums[i] != nums[i+1]){
+                freqChanged += 1;
+            }
+        }
+
+        if(!freqChanged && nums[0] == 1){
+            cout << "True";
+            return;
+        }
+        if(!freqChanged){
+            cout << "False";
+        }
+        else if(freqChanged > 1){
+            cout << "False";
+        }
+        else{
+            int same_freq = 1;
+            for(int i=0; i<nums.size()-1; i++){
+                if(nums[i] != nums[i+1]){
+                    same_freq = 0;
+                }
+            }
+            if(same_freq){
+                if(nums[0] == 1){
+                    cout << "True";
+                }
+                else{
+                    cout << "False";
+                }
+            }
+            else{
+                cout << "True";
+            }
+        }
+
+        // cout << freqChanged << endl;
+    }
+
+
+
 int main(){
     // myAtoi(" -042");
     // vector <int> arr1 = {7,3,9};
@@ -656,8 +731,12 @@ int main(){
 
     // cout << largestInteger(nums,k);
 
-    vector <int> nums = {5,4,3,8};
-    resultArray(nums);
+    // vector <int> nums = {5,4,3,8};
+    // resultArray(nums);
+
+
+    string word = "ddaccb";
+    equalFrequency(word);
 
     return 0;
 }

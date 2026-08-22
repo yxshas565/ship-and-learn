@@ -71,3 +71,138 @@ Symbol      Precedence
 2. Why postfix ??
 3. Precedence 
 4. Manual conversion
+
+
+
+
+Eg :- (a + (b * c))
+
+
+Prefix form :- 
+a + *bc
++a*bc
+
+Postfix form :- 
+a + bc*
+abc*+
+
+
+--> First parenthize entire expression and then we can convert to prefix and postfix
+
+
+Eg:- a + b + c * d
+
+Prefix form :- 
+a + b + [*cd]
++ ab + [*cd]
+++ab*cd
+
+
+Postfix form :- 
+a + b + (cd*)
+ab+ + cd*
+ab+cd*+
+
+
+Eg:- (a+b) * (c-d)
+
+Prefix form :- 
+(+ab) * (-cd)
+*+ab-cd
+
+Postfix form :- 
+ab+ * cd-
+ab+cd-+
+
+
+
+## Associativity and unary operators
+
+
+Symbol  Pre.    Assoc
++,-     1       L-R
+*,/     2       L-R
+^       3       R-L
+-       4       R-L
+()      5       L-R
+
+
+Eg:- a+b+c-d
+
+(((a+b)+c)-d) -- parenthesised form which compiler will do inside prog. by default
+a = b = c = 5 --> (a = (b = (c = 5)))
+
+
+Eg :- a+b+c-d
+
+(((a+b)+c)-d)
+(((ab+)+c)-d)
+((ab+c+) - d)
+ab+c+d-
+
+
+Eg:- a^b^c
+
+a^(b^c)
+(a^(b^c))
+a^(bc^)
+abc^^
+
+
+Eg :- -a (Unary '-')
+
+Prefix : -a
+Postfix : a-
+
+Eg:- --a
+
+(-(-a))
+
+Prefix :- --a
+Postfix :- -(a-) --> a--
+
+**Unary opeartors :- Associativity is always R-L**
+
+
+Eg:- -a + b * logn
+
+(((-a) + b) * (log (n!)))
+
+((a-b) + * (n!log))
+a-bn!log*+
+
+
+
+
+## Infix to postfix conversion using stack
+
+Rules :- 
+1. Push all operators into stack and operands put them in result 
+2. If op already exists in stack 
+    Check precedence of new operator to be pushed and recent operator which is already there
+    if(new_ope > recent_op) --> push new_oper keeping prev
+    else if(new_ope == rec_ope) --> pop prev and push new
+    else --> pop prev and push new
+
+Eg:- a + b * c - d / e 
+
+Postfix :- 
+
+Operand     Stack       Exp.
+a                       a
++           +           a
+b           +           ab
+*           +*          ab
+c           +*          abc
+-           -           abc*+
+d           -           abc*+d
+/           -/          abc*+d
+e           -/          abc*+d
+end                     abc*+d/-
+
+
+Method - 2 (We consier pushing operand's also here and take it as highest priority)
+We ll get same result only we are not directly using operand directly into final exp.
+
+
+
