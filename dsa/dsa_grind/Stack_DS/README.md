@@ -206,3 +206,90 @@ We ll get same result only we are not directly using operand directly into final
 
 
 
+Postfix :- 
+
+Operand     Stack       Exp.
+a           a           
++           +           a
+b           +b          a
+*           +*          ab
+c           +*c         ab
+-           -           abc*+
+d           -d          abc*+
+/           -/          abc*+d
+e           -/e         abc*+d
+end                     abc*+de/-
+
+
+
+
+Infix to postfix with associativity and parenthesis
+
+Symbol  Precedence(out of stack)   Precedence(in stack)  Associativity
++,-         1                        2                      L-R
+*,/         3                        4                      L-R
+^           6                        5                      R-L
+(           7                        0
+)           0                        ?
+
+
+Eg:- ((a+b) * c) - d ^ e ^ f
+
+1. ([ab+]*c) - d^e^f
+2. [ab+c*] - d^e^f
+3. [ab+c*] - d^[ef^]
+4. [ab+c*] - [def^^]
+5. ab+c*def^^-
+
+
+Operand     Stack       Exp.
+(           (   
+(           ((
+a           ((          a
++           ((+         a
+b           ((+         ab
+)           (           ab+
+*           (*          ab+
+c           (*          ab+c
+)                       ab+c*
+-           -           ab+c*
+d           -           ab+c*d
+^           -^          ab+c*d
+e           -^          ab+c*de
+^           -^^         ab+c*de
+f           -^^         ab+c*def
+end                     ab+c*def^^-
+
+
+
+
+
+Evaluation of postfix exp.
+
+Eg:- 3 * 5 + 6 / 2 - 4 = 14
+
+[35*] + 6 / 2 - 4
+[35*] + [62/] - 4
+[35*62/+] - 4
+35*62/+4-
+
+
+
+Steps :- 
+
+If number or operand push it to stack
+If operator pop out 2 operand and perform operation --> first pop in RHS and 2nd pop in LHS and then push result into stack
+
+Finally result will be present in stack
+
+Symbol      Stack       Operation
+3           3           
+5           3 5  
+*           15          3 * 5 = 15
+6           15 6
+2           15 6 2
+/           15 3        6 / 2 = 3
++           18          15 + 3 = 18
+4           18 4
+-           14          18 - 4 =14
+end         print(18)
